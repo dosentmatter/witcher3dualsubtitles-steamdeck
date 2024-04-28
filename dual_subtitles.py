@@ -188,12 +188,12 @@ def process_files(source_lang, target_lang, location):
                 is_ok = True
                 # Run the external program to generate CSV files
                 try:
-                    subprocess.run(["w3strings.exe", "-d", file])
+                    subprocess.run(["/home/deck/.local/share/Steam/steamapps/common/Proton 8.0/proton", "run", "w3strings.exe", "-d", file])
                 except:
                     is_ok = False
                 
                 try:
-                    subprocess.run(["w3strings.exe", "-d", source_file])
+                    subprocess.run(["/home/deck/.local/share/Steam/steamapps/common/Proton 8.0/proton", "run", "w3strings.exe", "-d", source_file])
                 except:
                     is_ok = False
                     
@@ -217,7 +217,7 @@ def process_files(source_lang, target_lang, location):
                             target.writelines(merged_lines)
                         
                         # Process the resulting CSV file using w3strings.exe -e
-                        subprocess.run(["w3strings.exe",  "--force-ignore-id-space-check-i-know-what-i-am-doing", "-e", target_file])
+                        subprocess.run(["/home/deck/.local/share/Steam/steamapps/common/Proton 8.0/proton", "run", "w3strings.exe",  "--force-ignore-id-space-check-i-know-what-i-am-doing", "-e", target_file])
                         
                         merged = True
     
